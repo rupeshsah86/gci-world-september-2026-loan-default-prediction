@@ -1,0 +1,78 @@
+{
+  "LightGBM_Baseline": {
+    "model_name": "LightGBM_Baseline",
+    "config": "baseline_features",
+    "n_splits": 5,
+    "features_count": 35,
+    "fold_scores": [
+      0.7456277082290164,
+      0.7509467530817131,
+      0.7543444305715938,
+      0.743539929073749,
+      0.7504592201643445
+    ],
+    "mean_auc": 0.7489836082240833,
+    "std_auc": 0.0038901283279738448,
+    "overall_oof_auc": 0.7488541245055984,
+    "fold_times": [
+      3.5045359134674072,
+      2.504645824432373,
+      2.3619959354400635,
+      2.945349931716919,
+      3.395637035369873
+    ],
+    "total_runtime_seconds": 14.73,
+    "hyperparameters": {
+      "objective": "binary",
+      "metric": "auc",
+      "boosting_type": "gbdt",
+      "learning_rate": 0.05,
+      "num_leaves": 31,
+      "max_depth": -1,
+      "feature_fraction": 0.8,
+      "bagging_fraction": 0.8,
+      "bagging_freq": 1,
+      "verbose": -1,
+      "random_state": 47,
+      "n_jobs": -1
+    }
+  },
+  "LightGBM_DomainFeatures": {
+    "model_name": "LightGBM_DomainFeatures",
+    "config": "with_domain_ratios",
+    "n_splits": 5,
+    "features_count": 46,
+    "fold_scores": [
+      0.75342238724648,
+      0.7571990439284146,
+      0.7611060773751954,
+      0.7527688842568403,
+      0.7574063849258085
+    ],
+    "mean_auc": 0.7563805555465478,
+    "std_auc": 0.0030281259846992427,
+    "overall_oof_auc": 0.7562678831413134,
+    "fold_times": [
+      5.010883092880249,
+      4.236378192901611,
+      2.8574087619781494,
+      3.1787209510803223,
+      4.241270065307617
+    ],
+    "total_runtime_seconds": 19.54,
+    "hyperparameters": {
+      "objective": "binary",
+      "metric": "auc",
+      "boosting_type": "gbdt",
+      "learning_rate": 0.05,
+      "num_leaves": 31,
+      "max_depth": -1,
+      "feature_fraction": 0.8,
+      "bagging_fraction": 0.8,
+      "bagging_freq": 1,
+      "verbose": -1,
+      "random_state": 47,
+      "n_jobs": -1
+    }
+  }
+}
