@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# Competition raw data (large files > 50MB, do not commit)
+Competition/input/*.csv
+Competition/input/*.xlsx
+!Competition/input/sample_submission.csv
+competition_tutorial.pptx
+
+# Intermediate out-of-fold CSVs (large generated files, all metrics tracked in JSON)
+experiments/*.csv
+!experiments/stage_h2_step1_feature_importance.csv
+
+# CatBoost training artifacts
+catboost_info/
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
