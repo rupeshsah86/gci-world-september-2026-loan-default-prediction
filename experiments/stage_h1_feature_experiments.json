@@ -1,0 +1,128 @@
+{
+  "reference_baseline_catboost": {
+    "mean_auc": 0.7606,
+    "oof_auc": 0.7606,
+    "features": 46
+  },
+  "reference_baseline_ensemble": {
+    "oof_auc": 0.76187
+  },
+  "candidate_experiments": [
+    {
+      "config_name": "Candidate_1_Financial_Ratios",
+      "feature_count": 50,
+      "pipeline_params": {
+        "include_group1_financial": true,
+        "include_group2_temporal": false,
+        "include_group3_ext_interact": false
+      },
+      "fold_scores": [
+        0.7583697779101062,
+        0.7606660903212343,
+        0.7653341971527616,
+        0.7567503249207952,
+        0.7612445261857564
+      ],
+      "mean_auc": 0.7604729832981307,
+      "std_auc": 0.00291704052727538,
+      "oof_auc": 0.7604392067754933,
+      "best_iterations": [
+        751,
+        886,
+        786,
+        828,
+        860
+      ],
+      "total_runtime_seconds": 244.29,
+      "description": "Added 4 financial & cash flow ratios (CREDIT_MINUS_GOODS, CREDIT_TO_GOODS_RATIO, INCOME_MINUS_ANNUITY, CREDIT_TERM_APPROX)",
+      "delta_vs_reference": -0.00013
+    },
+    {
+      "config_name": "Candidate_2_Financial_Plus_Temporal",
+      "feature_count": 57,
+      "pipeline_params": {
+        "include_group1_financial": true,
+        "include_group2_temporal": true,
+        "include_group3_ext_interact": false
+      },
+      "fold_scores": [
+        0.7574929632998288,
+        0.7612540178147729,
+        0.7654935770786425,
+        0.7578960879665008,
+        0.7609790538961161
+      ],
+      "mean_auc": 0.7606231400111723,
+      "std_auc": 0.002880300603178205,
+      "oof_auc": 0.7605992136493879,
+      "best_iterations": [
+        734,
+        1068,
+        854,
+        981,
+        579
+      ],
+      "total_runtime_seconds": 319.66,
+      "description": "Added Group 1 + 7 temporal & bureau features (AGE_YEARS, EMPLOYED_YEARS, ratios to age, BUREAU_TOTAL, BUREAU_URGENT_SHARE)",
+      "delta_vs_reference": 2e-05
+    },
+    {
+      "config_name": "Candidate_3_All_New_Groups",
+      "feature_count": 62,
+      "pipeline_params": {
+        "include_group1_financial": true,
+        "include_group2_temporal": true,
+        "include_group3_ext_interact": true
+      },
+      "fold_scores": [
+        0.7591333772891947,
+        0.7609636275016045,
+        0.7655543129453926,
+        0.7570562801254036,
+        0.7605771328036393
+      ],
+      "mean_auc": 0.7606569461330469,
+      "std_auc": 0.0028060892018819056,
+      "oof_auc": 0.7606133399483417,
+      "best_iterations": [
+        901,
+        1169,
+        850,
+        961,
+        692
+      ],
+      "total_runtime_seconds": 368.86,
+      "description": "Added Groups 1, 2 + 5 external score interactions (EXT_SOURCES_PROD, missing flags, EXT_WEIGHTED_SCORE, EXT_DIFF)",
+      "delta_vs_reference": 6e-05
+    }
+  ],
+  "best_candidate": {
+    "config_name": "Candidate_3_All_New_Groups",
+    "feature_count": 62,
+    "pipeline_params": {
+      "include_group1_financial": true,
+      "include_group2_temporal": true,
+      "include_group3_ext_interact": true
+    },
+    "fold_scores": [
+      0.7591333772891947,
+      0.7609636275016045,
+      0.7655543129453926,
+      0.7570562801254036,
+      0.7605771328036393
+    ],
+    "mean_auc": 0.7606569461330469,
+    "std_auc": 0.0028060892018819056,
+    "oof_auc": 0.7606133399483417,
+    "best_iterations": [
+      901,
+      1169,
+      850,
+      961,
+      692
+    ],
+    "total_runtime_seconds": 368.86,
+    "description": "Added Groups 1, 2 + 5 external score interactions (EXT_SOURCES_PROD, missing flags, EXT_WEIGHTED_SCORE, EXT_DIFF)",
+    "delta_vs_reference": 6e-05
+  }
+}
