@@ -1,0 +1,266 @@
+{
+  "individual_baselines": {
+    "CatBoost": 0.7605971356440093,
+    "LightGBM": 0.7590029032498152,
+    "XGBoost": 0.7587410375633765
+  },
+  "blend_configurations": [
+    {
+      "configuration": "CatBoost 50% + LightGBM 25% + XGBoost 25%",
+      "weight_catboost": 0.5,
+      "weight_lightgbm": 0.25,
+      "weight_xgboost": 0.25,
+      "overall_oof_auc": 0.76187,
+      "mean_fold_auc": 0.76189,
+      "std_fold_auc": 0.00344,
+      "fold_scores": [
+        0.7585,
+        0.76278,
+        0.76742,
+        0.75797,
+        0.7628
+      ],
+      "delta_vs_best_single": 0.00127
+    },
+    {
+      "configuration": "CatBoost 60% + LightGBM 30% + XGBoost 10%",
+      "weight_catboost": 0.6,
+      "weight_lightgbm": 0.3,
+      "weight_xgboost": 0.1,
+      "overall_oof_auc": 0.76185,
+      "mean_fold_auc": 0.76187,
+      "std_fold_auc": 0.00353,
+      "fold_scores": [
+        0.75823,
+        0.76284,
+        0.76751,
+        0.75793,
+        0.76285
+      ],
+      "delta_vs_best_single": 0.00125
+    },
+    {
+      "configuration": "CatBoost 70% + LightGBM 20% + XGBoost 10%",
+      "weight_catboost": 0.7,
+      "weight_lightgbm": 0.2,
+      "weight_xgboost": 0.1,
+      "overall_oof_auc": 0.76177,
+      "mean_fold_auc": 0.76178,
+      "std_fold_auc": 0.00356,
+      "fold_scores": [
+        0.75822,
+        0.76262,
+        0.76749,
+        0.75774,
+        0.76286
+      ],
+      "delta_vs_best_single": 0.00117
+    },
+    {
+      "configuration": "CatBoost 50% + LightGBM 50%",
+      "weight_catboost": 0.5,
+      "weight_lightgbm": 0.5,
+      "weight_xgboost": 0.0,
+      "overall_oof_auc": 0.76165,
+      "mean_fold_auc": 0.76167,
+      "std_fold_auc": 0.00354,
+      "fold_scores": [
+        0.75778,
+        0.76291,
+        0.76722,
+        0.75789,
+        0.76256
+      ],
+      "delta_vs_best_single": 0.00105
+    },
+    {
+      "configuration": "CatBoost 75% + XGBoost 25%",
+      "weight_catboost": 0.75,
+      "weight_lightgbm": 0.0,
+      "weight_xgboost": 0.25,
+      "overall_oof_auc": 0.76165,
+      "mean_fold_auc": 0.76165,
+      "std_fold_auc": 0.0035,
+      "fold_scores": [
+        0.75848,
+        0.76222,
+        0.76734,
+        0.75747,
+        0.76276
+      ],
+      "delta_vs_best_single": 0.00105
+    },
+    {
+      "configuration": "CatBoost 50% + XGBoost 50%",
+      "weight_catboost": 0.5,
+      "weight_lightgbm": 0.0,
+      "weight_xgboost": 0.5,
+      "overall_oof_auc": 0.76165,
+      "mean_fold_auc": 0.76168,
+      "std_fold_auc": 0.00334,
+      "fold_scores": [
+        0.75877,
+        0.76221,
+        0.76717,
+        0.75765,
+        0.76258
+      ],
+      "delta_vs_best_single": 0.00105
+    },
+    {
+      "configuration": "CatBoost 75% + LightGBM 25%",
+      "weight_catboost": 0.75,
+      "weight_lightgbm": 0.25,
+      "weight_xgboost": 0.0,
+      "overall_oof_auc": 0.7616,
+      "mean_fold_auc": 0.76161,
+      "std_fold_auc": 0.00363,
+      "fold_scores": [
+        0.75785,
+        0.76253,
+        0.76738,
+        0.75757,
+        0.76274
+      ],
+      "delta_vs_best_single": 0.001
+    },
+    {
+      "configuration": "CatBoost 25% + LightGBM 75%",
+      "weight_catboost": 0.25,
+      "weight_lightgbm": 0.75,
+      "weight_xgboost": 0.0,
+      "overall_oof_auc": 0.76079,
+      "mean_fold_auc": 0.76082,
+      "std_fold_auc": 0.0034,
+      "fold_scores": [
+        0.75695,
+        0.76236,
+        0.76604,
+        0.75726,
+        0.76148
+      ],
+      "delta_vs_best_single": 0.00019
+    },
+    {
+      "configuration": "CatBoost 25% + XGBoost 75%",
+      "weight_catboost": 0.25,
+      "weight_lightgbm": 0.0,
+      "weight_xgboost": 0.75,
+      "overall_oof_auc": 0.76069,
+      "mean_fold_auc": 0.76073,
+      "std_fold_auc": 0.00319,
+      "fold_scores": [
+        0.75803,
+        0.76127,
+        0.76599,
+        0.75686,
+        0.76148
+      ],
+      "delta_vs_best_single": 9e-05
+    },
+    {
+      "configuration": "CatBoost 100%",
+      "weight_catboost": 1.0,
+      "weight_lightgbm": 0.0,
+      "weight_xgboost": 0.0,
+      "overall_oof_auc": 0.7606,
+      "mean_fold_auc": 0.7606,
+      "std_fold_auc": 0.00369,
+      "fold_scores": [
+        0.75713,
+        0.76118,
+        0.76646,
+        0.75621,
+        0.762
+      ],
+      "delta_vs_best_single": -0.0
+    },
+    {
+      "configuration": "LightGBM 50% + XGBoost 50%",
+      "weight_catboost": 0.0,
+      "weight_lightgbm": 0.5,
+      "weight_xgboost": 0.5,
+      "overall_oof_auc": 0.75972,
+      "mean_fold_auc": 0.75976,
+      "std_fold_auc": 0.00312,
+      "fold_scores": [
+        0.75663,
+        0.76101,
+        0.76466,
+        0.75617,
+        0.76032
+      ],
+      "delta_vs_best_single": -0.00088
+    },
+    {
+      "configuration": "LightGBM 100%",
+      "weight_catboost": 0.0,
+      "weight_lightgbm": 1.0,
+      "weight_xgboost": 0.0,
+      "overall_oof_auc": 0.759,
+      "mean_fold_auc": 0.75905,
+      "std_fold_auc": 0.00323,
+      "fold_scores": [
+        0.7553,
+        0.76093,
+        0.76386,
+        0.75571,
+        0.75944
+      ],
+      "delta_vs_best_single": -0.0016
+    },
+    {
+      "configuration": "XGBoost 100%",
+      "weight_catboost": 0.0,
+      "weight_lightgbm": 0.0,
+      "weight_xgboost": 1.0,
+      "overall_oof_auc": 0.75874,
+      "mean_fold_auc": 0.75879,
+      "std_fold_auc": 0.00303,
+      "fold_scores": [
+        0.75626,
+        0.75933,
+        0.7638,
+        0.7551,
+        0.75947
+      ],
+      "delta_vs_best_single": -0.00186
+    }
+  ],
+  "top_configuration": {
+    "configuration": "CatBoost 50% + LightGBM 25% + XGBoost 25%",
+    "weight_catboost": 0.5,
+    "weight_lightgbm": 0.25,
+    "weight_xgboost": 0.25,
+    "overall_oof_auc": 0.76187,
+    "mean_fold_auc": 0.76189,
+    "std_fold_auc": 0.00344,
+    "fold_scores": [
+      0.7585,
+      0.76278,
+      0.76742,
+      0.75797,
+      0.7628
+    ],
+    "delta_vs_best_single": 0.00127
+  },
+  "nested_cross_validation": {
+    "nested_fold_scores": [
+      0.75823,
+      0.76278,
+      0.76742,
+      0.75797,
+      0.7628
+    ],
+    "nested_mean_auc": 0.76184,
+    "nested_std_auc": 0.00349,
+    "chosen_configs_per_fold": [
+      "CatBoost 60% + LightGBM 30% + XGBoost 10%",
+      "CatBoost 50% + LightGBM 25% + XGBoost 25%",
+      "CatBoost 50% + LightGBM 25% + XGBoost 25%",
+      "CatBoost 50% + LightGBM 25% + XGBoost 25%",
+      "CatBoost 50% + LightGBM 25% + XGBoost 25%"
+    ],
+    "selection_optimism_delta": 3e-05
+  }
+}
