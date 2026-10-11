@@ -1,0 +1,59 @@
+{
+  "model": "CatBoostClassifier",
+  "features_count": 46,
+  "categorical_features": [
+    "NAME_CONTRACT_TYPE",
+    "CODE_GENDER",
+    "NAME_INCOME_TYPE",
+    "NAME_EDUCATION_TYPE",
+    "NAME_FAMILY_STATUS",
+    "NAME_HOUSING_TYPE",
+    "OCCUPATION_TYPE",
+    "ORGANIZATION_TYPE"
+  ],
+  "n_splits": 5,
+  "parameters": {
+    "iterations": 1200,
+    "learning_rate": 0.05,
+    "depth": 6,
+    "l2_leaf_reg": 5.0,
+    "eval_metric": "AUC",
+    "loss_function": "Logloss",
+    "random_seed": 47,
+    "early_stopping_rounds": 50,
+    "thread_count": -1,
+    "verbose": 100,
+    "task_type": "CPU"
+  },
+  "fold_scores": [
+    0.7571301343452161,
+    0.7611821929484092,
+    0.7664625463381101,
+    0.7562138515845302,
+    0.7619981267973633
+  ],
+  "best_iterations": [
+    687,
+    946,
+    1048,
+    601,
+    1079
+  ],
+  "mean_auc": 0.7605973704027258,
+  "std_auc": 0.003686228092455425,
+  "oof_auc": 0.7605971356440093,
+  "fold_times": [
+    37.42075181007385,
+    52.09841990470886,
+    61.926116943359375,
+    39.06961011886597,
+    78.63395619392395
+  ],
+  "total_runtime_seconds": 269.17,
+  "benchmark_comparison": {
+    "lgb_tuned_mean": 0.75905,
+    "lgb_tuned_oof": 0.759,
+    "delta_mean": 0.00155,
+    "delta_oof": 0.0016
+  }
+}
