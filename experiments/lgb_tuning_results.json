@@ -1,0 +1,158 @@
+{
+  "reference_baseline": {
+    "mean_roc_auc": 0.75638,
+    "oof_roc_auc": 0.75627
+  },
+  "best_configuration": {
+    "params": {
+      "learning_rate": 0.03,
+      "num_leaves": 24,
+      "max_depth": 7,
+      "min_child_samples": 100,
+      "feature_fraction": 0.7,
+      "bagging_fraction": 0.75,
+      "bagging_freq": 1,
+      "reg_alpha": 1.0,
+      "reg_lambda": 5.0
+    },
+    "fold_scores": [
+      0.7552977601958419,
+      0.760928444692325,
+      0.7638595477794029,
+      0.7557063323830767,
+      0.7594377835758078
+    ],
+    "mean_auc": 0.7590459737252908,
+    "std_auc": 0.0032270734739723262,
+    "oof_auc": 0.7590029032498152,
+    "total_runtime_seconds": 34.58,
+    "name": "Config_2_Conservative_Leaves_DeepRegularization"
+  },
+  "all_configurations": [
+    {
+      "params": {
+        "learning_rate": 0.05,
+        "num_leaves": 31,
+        "max_depth": -1,
+        "min_child_samples": 20,
+        "feature_fraction": 0.8,
+        "bagging_fraction": 0.8,
+        "bagging_freq": 1,
+        "reg_alpha": 0.0,
+        "reg_lambda": 0.0
+      },
+      "fold_scores": [
+        0.75342238724648,
+        0.7571990439284146,
+        0.7611060773751954,
+        0.7527688842568403,
+        0.7574063849258085
+      ],
+      "mean_auc": 0.7563805555465478,
+      "std_auc": 0.0030281259846992427,
+      "oof_auc": 0.7562678831413134,
+      "total_runtime_seconds": 19.44,
+      "name": "Config_0_StageD_Reference"
+    },
+    {
+      "params": {
+        "learning_rate": 0.05,
+        "num_leaves": 31,
+        "max_depth": -1,
+        "min_child_samples": 50,
+        "feature_fraction": 0.7,
+        "bagging_fraction": 0.8,
+        "bagging_freq": 1,
+        "reg_alpha": 0.5,
+        "reg_lambda": 2.0
+      },
+      "fold_scores": [
+        0.7544384393502214,
+        0.7579228882903293,
+        0.761627941459636,
+        0.7518687658379921,
+        0.7575240520469138
+      ],
+      "mean_auc": 0.7566764173970185,
+      "std_auc": 0.0033139651169319384,
+      "oof_auc": 0.7565996440557923,
+      "total_runtime_seconds": 16.96,
+      "name": "Config_1_Regularized_L1_L2"
+    },
+    {
+      "params": {
+        "learning_rate": 0.03,
+        "num_leaves": 24,
+        "max_depth": 7,
+        "min_child_samples": 100,
+        "feature_fraction": 0.7,
+        "bagging_fraction": 0.75,
+        "bagging_freq": 1,
+        "reg_alpha": 1.0,
+        "reg_lambda": 5.0
+      },
+      "fold_scores": [
+        0.7552977601958419,
+        0.760928444692325,
+        0.7638595477794029,
+        0.7557063323830767,
+        0.7594377835758078
+      ],
+      "mean_auc": 0.7590459737252908,
+      "std_auc": 0.0032270734739723262,
+      "oof_auc": 0.7590029032498152,
+      "total_runtime_seconds": 34.58,
+      "name": "Config_2_Conservative_Leaves_DeepRegularization"
+    },
+    {
+      "params": {
+        "learning_rate": 0.03,
+        "num_leaves": 40,
+        "max_depth": -1,
+        "min_child_samples": 50,
+        "feature_fraction": 0.65,
+        "bagging_fraction": 0.8,
+        "bagging_freq": 1,
+        "reg_alpha": 0.2,
+        "reg_lambda": 1.0
+      },
+      "fold_scores": [
+        0.7555664078708241,
+        0.760281561289442,
+        0.7635920180105523,
+        0.7536343703580282,
+        0.7589466092650657
+      ],
+      "mean_auc": 0.7584041933587825,
+      "std_auc": 0.0035081758198289067,
+      "oof_auc": 0.7583563139465439,
+      "total_runtime_seconds": 32.75,
+      "name": "Config_3_Feature_Subsampling_HighCapacity"
+    },
+    {
+      "params": {
+        "learning_rate": 0.03,
+        "num_leaves": 31,
+        "max_depth": 8,
+        "min_child_samples": 70,
+        "feature_fraction": 0.7,
+        "bagging_fraction": 0.8,
+        "bagging_freq": 1,
+        "reg_alpha": 0.8,
+        "reg_lambda": 3.0
+      },
+      "fold_scores": [
+        0.7552047627912176,
+        0.7594744249012481,
+        0.7634513622949166,
+        0.7541365791941449,
+        0.759436404260136
+      ],
+      "mean_auc": 0.7583407066883326,
+      "std_auc": 0.0033500299400900414,
+      "oof_auc": 0.7583032815942313,
+      "total_runtime_seconds": 35.2,
+      "name": "Config_4_Robust_Credit_Tuned"
+    }
+  ]
+}
