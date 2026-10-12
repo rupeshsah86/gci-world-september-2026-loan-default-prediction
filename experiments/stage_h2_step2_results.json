@@ -1,0 +1,102 @@
+{
+  "reference_baseline_lgb": {
+    "mean_auc": 0.75905,
+    "oof_auc": 0.759
+  },
+  "reference_baseline_ensemble": {
+    "oof_auc": 0.76203
+  },
+  "pilot_experiments": [
+    {
+      "config_name": "Pilot_1_Target_Encoding",
+      "feature_count": 48,
+      "fold_scores": [
+        0.7554,
+        0.76001,
+        0.76288,
+        0.75484,
+        0.75856
+      ],
+      "mean_auc": 0.75834,
+      "std_auc": 0.00298,
+      "oof_auc": 0.75831,
+      "mean_best_iteration": 449.0,
+      "total_runtime_seconds": 28.63,
+      "description": "Smoothed OOF target encoding for ORGANIZATION_TYPE and OCCUPATION_TYPE (m=20)",
+      "delta_vs_lgb_ref": -0.00071
+    },
+    {
+      "config_name": "Pilot_2_Cross_Interactions",
+      "feature_count": 51,
+      "fold_scores": [
+        0.75585,
+        0.76047,
+        0.76395,
+        0.75432,
+        0.75885
+      ],
+      "mean_auc": 0.75869,
+      "std_auc": 0.00341,
+      "oof_auc": 0.75867,
+      "mean_best_iteration": 542.8,
+      "total_runtime_seconds": 33.03,
+      "description": "5 non-linear interactions combining top gain drivers (PAYMENT_RATE, CREDIT_INCOME, EXT_SOURCES)",
+      "delta_vs_lgb_ref": -0.00036
+    },
+    {
+      "config_name": "Pilot_3_Frequency_Encodings",
+      "feature_count": 50,
+      "fold_scores": [
+        0.75591,
+        0.76043,
+        0.76317,
+        0.75495,
+        0.75928
+      ],
+      "mean_auc": 0.75875,
+      "std_auc": 0.00301,
+      "oof_auc": 0.75872,
+      "mean_best_iteration": 529.8,
+      "total_runtime_seconds": 31.52,
+      "description": "Frequency / prevalence encodings for high-cardinality categoricals",
+      "delta_vs_lgb_ref": -0.0003
+    },
+    {
+      "config_name": "Pilot_4_Combined_Best_Features",
+      "feature_count": 57,
+      "fold_scores": [
+        0.7555,
+        0.75964,
+        0.76374,
+        0.7551,
+        0.7585
+      ],
+      "mean_auc": 0.7585,
+      "std_auc": 0.00314,
+      "oof_auc": 0.75845,
+      "mean_best_iteration": 545.2,
+      "total_runtime_seconds": 34.35,
+      "description": "Full combination of OOF Target Encoding, Cross-Interactions, and Frequency Encodings",
+      "delta_vs_lgb_ref": -0.00055
+    }
+  ],
+  "best_pilot": {
+    "config_name": "Pilot_3_Frequency_Encodings",
+    "feature_count": 50,
+    "fold_scores": [
+      0.75591,
+      0.76043,
+      0.76317,
+      0.75495,
+      0.75928
+    ],
+    "mean_auc": 0.75875,
+    "std_auc": 0.00301,
+    "oof_auc": 0.75872,
+    "mean_best_iteration": 529.8,
+    "total_runtime_seconds": 31.52,
+    "description": "Frequency / prevalence encodings for high-cardinality categoricals",
+    "delta_vs_lgb_ref": -0.0003
+  },
+  "total_runtime_seconds": 128.19
+}
