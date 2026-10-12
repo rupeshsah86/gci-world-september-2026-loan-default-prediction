@@ -1,0 +1,366 @@
+{
+  "catboost_tuning": {
+    "baseline_reference": {
+      "mean_auc": 0.76066,
+      "oof_auc": 0.76061,
+      "features": 62
+    },
+    "candidates": [
+      {
+        "model": "CatBoost",
+        "cfg_name": "CB_Config_1_Conservative_Depth5",
+        "features": 62,
+        "params": {
+          "iterations": 1200,
+          "learning_rate": 0.05,
+          "depth": 5,
+          "l2_leaf_reg": 5.0,
+          "random_strength": 1.0
+        },
+        "fold_scores": [
+          0.75889,
+          0.76069,
+          0.76616,
+          0.75606,
+          0.76123
+        ],
+        "mean_auc": 0.76061,
+        "std_auc": 0.00331,
+        "oof_auc": 0.76057,
+        "best_iterations": [
+          1020,
+          1199,
+          1016,
+          811,
+          813
+        ],
+        "mean_best_iteration": 971.8,
+        "total_runtime_seconds": 310.02,
+        "description": "Shallower tree depth=5 to prevent overfitting on noisy credit records",
+        "delta_vs_baseline": -5e-05
+      },
+      {
+        "model": "CatBoost",
+        "cfg_name": "CB_Config_2_Moderate_L2_8",
+        "features": 62,
+        "params": {
+          "iterations": 1200,
+          "learning_rate": 0.05,
+          "depth": 6,
+          "l2_leaf_reg": 8.0,
+          "random_strength": 1.0
+        },
+        "fold_scores": [
+          0.75862,
+          0.76114,
+          0.76483,
+          0.75657,
+          0.76144
+        ],
+        "mean_auc": 0.76052,
+        "std_auc": 0.00279,
+        "oof_auc": 0.76047,
+        "best_iterations": [
+          875,
+          1073,
+          731,
+          920,
+          878
+        ],
+        "mean_best_iteration": 895.4,
+        "total_runtime_seconds": 479.26,
+        "description": "Isolates increased L2 penalty (l2=8.0 vs baseline 5.0) with unchanged depth=6 and lr=0.05",
+        "delta_vs_baseline": -0.00014
+      },
+      {
+        "model": "CatBoost",
+        "cfg_name": "CB_Config_3_RandomStrength_2_LR04",
+        "features": 62,
+        "params": {
+          "iterations": 1300,
+          "learning_rate": 0.04,
+          "depth": 6,
+          "l2_leaf_reg": 5.0,
+          "random_strength": 2.0
+        },
+        "fold_scores": [
+          0.75815,
+          0.761,
+          0.76503,
+          0.75785,
+          0.76175
+        ],
+        "mean_auc": 0.76076,
+        "std_auc": 0.00263,
+        "oof_auc": 0.76072,
+        "best_iterations": [
+          1041,
+          1291,
+          1011,
+          1093,
+          1081
+        ],
+        "mean_best_iteration": 1103.4,
+        "total_runtime_seconds": 332.4,
+        "description": "Higher random_strength=2.0 for tree split diversity with slightly lower lr=0.04",
+        "delta_vs_baseline": 0.0001
+      },
+      {
+        "model": "CatBoost",
+        "cfg_name": "CB_Config_4_High_L2_Regularization",
+        "features": 62,
+        "params": {
+          "iterations": 1300,
+          "learning_rate": 0.04,
+          "depth": 6,
+          "l2_leaf_reg": 10.0,
+          "random_strength": 1.5
+        },
+        "fold_scores": [
+          0.75944,
+          0.76152,
+          0.76487,
+          0.75684,
+          0.76153
+        ],
+        "mean_auc": 0.76084,
+        "std_auc": 0.00265,
+        "oof_auc": 0.7608,
+        "best_iterations": [
+          1197,
+          1287,
+          1081,
+          1061,
+          1273
+        ],
+        "mean_best_iteration": 1179.8,
+        "total_runtime_seconds": 12616.05,
+        "description": "Conservative joint regularization (l2=10.0, random_strength=1.5, lr=0.04)",
+        "delta_vs_baseline": 0.00018
+      }
+    ],
+    "best": {
+      "model": "CatBoost",
+      "cfg_name": "CB_Config_4_High_L2_Regularization",
+      "features": 62,
+      "params": {
+        "iterations": 1300,
+        "learning_rate": 0.04,
+        "depth": 6,
+        "l2_leaf_reg": 10.0,
+        "random_strength": 1.5
+      },
+      "fold_scores": [
+        0.75944,
+        0.76152,
+        0.76487,
+        0.75684,
+        0.76153
+      ],
+      "mean_auc": 0.76084,
+      "std_auc": 0.00265,
+      "oof_auc": 0.7608,
+      "best_iterations": [
+        1197,
+        1287,
+        1081,
+        1061,
+        1273
+      ],
+      "mean_best_iteration": 1179.8,
+      "total_runtime_seconds": 12616.05,
+      "description": "Conservative joint regularization (l2=10.0, random_strength=1.5, lr=0.04)",
+      "delta_vs_baseline": 0.00018
+    }
+  },
+  "xgboost_tuning": {
+    "baseline_reference": {
+      "mean_auc": 0.75879,
+      "oof_auc": 0.75874,
+      "features": 46
+    },
+    "candidates": [
+      {
+        "model": "XGBoost",
+        "cfg_name": "XGB_Config_1_Depth5_HigherMinChild",
+        "features": 46,
+        "params": {
+          "n_estimators": 1200,
+          "learning_rate": 0.03,
+          "max_depth": 5,
+          "min_child_weight": 5,
+          "subsample": 0.8,
+          "colsample_bytree": 0.65,
+          "reg_alpha": 1.5,
+          "reg_lambda": 8.0
+        },
+        "fold_scores": [
+          0.75809,
+          0.761,
+          0.76452,
+          0.75576,
+          0.76111
+        ],
+        "mean_auc": 0.7601,
+        "std_auc": 0.00297,
+        "oof_auc": 0.76003,
+        "best_iterations": [
+          731,
+          435,
+          707,
+          592,
+          731
+        ],
+        "mean_best_iteration": 639.2,
+        "total_runtime_seconds": 3354.3,
+        "description": "Depth=5 with min_child_weight=5 and stronger L2 regularization (reg_lambda=8.0)",
+        "delta_vs_baseline": 0.00131
+      },
+      {
+        "model": "XGBoost",
+        "cfg_name": "XGB_Config_2_Depth6_MCW5_Reg8",
+        "features": 46,
+        "params": {
+          "n_estimators": 1200,
+          "learning_rate": 0.03,
+          "max_depth": 6,
+          "min_child_weight": 5,
+          "subsample": 0.8,
+          "colsample_bytree": 0.65,
+          "reg_alpha": 1.5,
+          "reg_lambda": 8.0
+        },
+        "fold_scores": [
+          0.75681,
+          0.7605,
+          0.76414,
+          0.75577,
+          0.76055
+        ],
+        "mean_auc": 0.75956,
+        "std_auc": 0.00299,
+        "oof_auc": 0.7595,
+        "best_iterations": [
+          475,
+          542,
+          580,
+          655,
+          488
+        ],
+        "mean_best_iteration": 548.0,
+        "total_runtime_seconds": 361.41,
+        "description": "Depth=6 with min_child_weight=5 and higher regularization (alpha=1.5, lambda=8.0)",
+        "delta_vs_baseline": 0.00077
+      },
+      {
+        "model": "XGBoost",
+        "cfg_name": "XGB_Config_3_Depth6_Colsample06_Reg10",
+        "features": 46,
+        "params": {
+          "n_estimators": 1200,
+          "learning_rate": 0.03,
+          "max_depth": 6,
+          "min_child_weight": 10,
+          "subsample": 0.8,
+          "colsample_bytree": 0.6,
+          "reg_alpha": 2.0,
+          "reg_lambda": 10.0
+        },
+        "fold_scores": [
+          0.75815,
+          0.7616,
+          0.76445,
+          0.75618,
+          0.76068
+        ],
+        "mean_auc": 0.76021,
+        "std_auc": 0.00285,
+        "oof_auc": 0.76015,
+        "best_iterations": [
+          482,
+          463,
+          390,
+          447,
+          485
+        ],
+        "mean_best_iteration": 453.4,
+        "total_runtime_seconds": 59.0,
+        "description": "Depth=6 with tight feature subsampling (0.60) and high regularization (alpha=2.0, lambda=10.0)",
+        "delta_vs_baseline": 0.00142
+      },
+      {
+        "model": "XGBoost",
+        "cfg_name": "XGB_Config_4_Depth7_MinChild15",
+        "features": 46,
+        "params": {
+          "n_estimators": 1300,
+          "learning_rate": 0.025,
+          "max_depth": 7,
+          "min_child_weight": 15,
+          "subsample": 0.8,
+          "colsample_bytree": 0.65,
+          "reg_alpha": 1.5,
+          "reg_lambda": 6.0
+        },
+        "fold_scores": [
+          0.75771,
+          0.76119,
+          0.76466,
+          0.75462,
+          0.76133
+        ],
+        "mean_auc": 0.7599,
+        "std_auc": 0.00344,
+        "oof_auc": 0.75983,
+        "best_iterations": [
+          441,
+          502,
+          427,
+          443,
+          652
+        ],
+        "mean_best_iteration": 493.0,
+        "total_runtime_seconds": 68.22,
+        "description": "Depth=7 with large min_child_weight=15 and lr=0.025 to prevent small leaf overfitting",
+        "delta_vs_baseline": 0.00111
+      }
+    ],
+    "best": {
+      "model": "XGBoost",
+      "cfg_name": "XGB_Config_3_Depth6_Colsample06_Reg10",
+      "features": 46,
+      "params": {
+        "n_estimators": 1200,
+        "learning_rate": 0.03,
+        "max_depth": 6,
+        "min_child_weight": 10,
+        "subsample": 0.8,
+        "colsample_bytree": 0.6,
+        "reg_alpha": 2.0,
+        "reg_lambda": 10.0
+      },
+      "fold_scores": [
+        0.75815,
+        0.7616,
+        0.76445,
+        0.75618,
+        0.76068
+      ],
+      "mean_auc": 0.76021,
+      "std_auc": 0.00285,
+      "oof_auc": 0.76015,
+      "best_iterations": [
+        482,
+        463,
+        390,
+        447,
+        485
+      ],
+      "mean_best_iteration": 453.4,
+      "total_runtime_seconds": 59.0,
+      "description": "Depth=6 with tight feature subsampling (0.60) and high regularization (alpha=2.0, lambda=10.0)",
+      "delta_vs_baseline": 0.00142
+    }
+  },
+  "total_runtime_seconds": 17583.09
+}
