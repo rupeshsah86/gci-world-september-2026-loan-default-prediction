@@ -1,0 +1,292 @@
+{
+  "correlations": {
+    "pearson": {
+      "CB_Config_4": {
+        "CB_Config_4": 1.0,
+        "CB_Config_3": 0.9872,
+        "XGB_Config_3": 0.9623,
+        "Tuned_LGB": 0.9562
+      },
+      "CB_Config_3": {
+        "CB_Config_4": 0.9872,
+        "CB_Config_3": 1.0,
+        "XGB_Config_3": 0.962,
+        "Tuned_LGB": 0.9559
+      },
+      "XGB_Config_3": {
+        "CB_Config_4": 0.9623,
+        "CB_Config_3": 0.962,
+        "XGB_Config_3": 1.0,
+        "Tuned_LGB": 0.9819
+      },
+      "Tuned_LGB": {
+        "CB_Config_4": 0.9562,
+        "CB_Config_3": 0.9559,
+        "XGB_Config_3": 0.9819,
+        "Tuned_LGB": 1.0
+      }
+    },
+    "spearman": {
+      "CB_Config_4": {
+        "CB_Config_4": 1.0,
+        "CB_Config_3": 0.992,
+        "XGB_Config_3": 0.9691,
+        "Tuned_LGB": 0.9637
+      },
+      "CB_Config_3": {
+        "CB_Config_4": 0.992,
+        "CB_Config_3": 1.0,
+        "XGB_Config_3": 0.9689,
+        "Tuned_LGB": 0.9636
+      },
+      "XGB_Config_3": {
+        "CB_Config_4": 0.9691,
+        "CB_Config_3": 0.9689,
+        "XGB_Config_3": 1.0,
+        "Tuned_LGB": 0.9822
+      },
+      "Tuned_LGB": {
+        "CB_Config_4": 0.9637,
+        "CB_Config_3": 0.9636,
+        "XGB_Config_3": 0.9822,
+        "Tuned_LGB": 1.0
+      }
+    }
+  },
+  "ensemble_evaluations_seed_42": {
+    "reference_baseline_ensemble_auc": 0.76203,
+    "blends_with_cb_config_4": [
+      {
+        "blend_name": "Blend_1_Verified_Reference",
+        "weights": {
+          "catboost": 0.5,
+          "lightgbm": 0.25,
+          "xgboost": 0.25
+        },
+        "oof_auc": 0.76215,
+        "description": "50% CatBoost, 25% LightGBM, 25% XGBoost (Verified baseline)"
+      },
+      {
+        "blend_name": "Blend_2_Equal_Weights",
+        "weights": {
+          "catboost": 0.34,
+          "lightgbm": 0.33,
+          "xgboost": 0.33
+        },
+        "oof_auc": 0.76194,
+        "description": "Equal weight across all three diverse architectures"
+      },
+      {
+        "blend_name": "Blend_3_Balanced_Diversity",
+        "weights": {
+          "catboost": 0.4,
+          "lightgbm": 0.3,
+          "xgboost": 0.3
+        },
+        "oof_auc": 0.76205,
+        "description": "40% CatBoost, 30% LightGBM, 30% XGBoost"
+      },
+      {
+        "blend_name": "Blend_4_Top2_Heavy",
+        "weights": {
+          "catboost": 0.45,
+          "lightgbm": 0.2,
+          "xgboost": 0.35
+        },
+        "oof_auc": 0.76213,
+        "description": "45% CatBoost, 20% LightGBM, 35% XGBoost (Top 2 models favored)"
+      },
+      {
+        "blend_name": "Blend_5_XGB_Boosted",
+        "weights": {
+          "catboost": 0.4,
+          "lightgbm": 0.2,
+          "xgboost": 0.4
+        },
+        "oof_auc": 0.76207,
+        "description": "40% CatBoost, 20% LightGBM, 40% XGBoost"
+      },
+      {
+        "blend_name": "Blend_6_CatBoost_Dominant",
+        "weights": {
+          "catboost": 0.6,
+          "lightgbm": 0.2,
+          "xgboost": 0.2
+        },
+        "oof_auc": 0.76212,
+        "description": "60% CatBoost, 20% LightGBM, 20% XGBoost"
+      }
+    ],
+    "best_with_cb_config_4": {
+      "blend_name": "Blend_1_Verified_Reference",
+      "weights": {
+        "catboost": 0.5,
+        "lightgbm": 0.25,
+        "xgboost": 0.25
+      },
+      "oof_auc": 0.76215,
+      "description": "50% CatBoost, 25% LightGBM, 25% XGBoost (Verified baseline)"
+    },
+    "blends_with_cb_config_3": [
+      {
+        "blend_name": "Blend_1_Verified_Reference",
+        "weights": {
+          "catboost": 0.5,
+          "lightgbm": 0.25,
+          "xgboost": 0.25
+        },
+        "oof_auc": 0.76208,
+        "description": "50% CatBoost, 25% LightGBM, 25% XGBoost (Verified baseline)"
+      },
+      {
+        "blend_name": "Blend_2_Equal_Weights",
+        "weights": {
+          "catboost": 0.34,
+          "lightgbm": 0.33,
+          "xgboost": 0.33
+        },
+        "oof_auc": 0.76188,
+        "description": "Equal weight across all three diverse architectures"
+      },
+      {
+        "blend_name": "Blend_3_Balanced_Diversity",
+        "weights": {
+          "catboost": 0.4,
+          "lightgbm": 0.3,
+          "xgboost": 0.3
+        },
+        "oof_auc": 0.76199,
+        "description": "40% CatBoost, 30% LightGBM, 30% XGBoost"
+      },
+      {
+        "blend_name": "Blend_4_Top2_Heavy",
+        "weights": {
+          "catboost": 0.45,
+          "lightgbm": 0.2,
+          "xgboost": 0.35
+        },
+        "oof_auc": 0.76207,
+        "description": "45% CatBoost, 20% LightGBM, 35% XGBoost (Top 2 models favored)"
+      },
+      {
+        "blend_name": "Blend_5_XGB_Boosted",
+        "weights": {
+          "catboost": 0.4,
+          "lightgbm": 0.2,
+          "xgboost": 0.4
+        },
+        "oof_auc": 0.76201,
+        "description": "40% CatBoost, 20% LightGBM, 40% XGBoost"
+      },
+      {
+        "blend_name": "Blend_6_CatBoost_Dominant",
+        "weights": {
+          "catboost": 0.6,
+          "lightgbm": 0.2,
+          "xgboost": 0.2
+        },
+        "oof_auc": 0.76205,
+        "description": "60% CatBoost, 20% LightGBM, 20% XGBoost"
+      }
+    ],
+    "best_with_cb_config_3": {
+      "blend_name": "Blend_1_Verified_Reference",
+      "weights": {
+        "catboost": 0.5,
+        "lightgbm": 0.25,
+        "xgboost": 0.25
+      },
+      "oof_auc": 0.76208,
+      "description": "50% CatBoost, 25% LightGBM, 25% XGBoost (Verified baseline)"
+    }
+  },
+  "nested_cv_ensemble": {
+    "selected_weights_per_fold": [
+      [
+        0.5,
+        0.25,
+        0.25
+      ],
+      [
+        0.6,
+        0.2,
+        0.2
+      ],
+      [
+        0.5,
+        0.25,
+        0.25
+      ],
+      [
+        0.5,
+        0.25,
+        0.25
+      ],
+      [
+        0.5,
+        0.25,
+        0.25
+      ]
+    ],
+    "outer_fold_scores": [
+      0.75988,
+      0.76334,
+      0.76658,
+      0.75828,
+      0.76273
+    ],
+    "mean_outer_auc": 0.76216,
+    "std_outer_auc": 0.00288,
+    "nested_oof_auc": 0.76212
+  },
+  "stability_evaluation_seed_2026": {
+    "seed": 2026,
+    "models": {
+      "Tuned_LightGBM": {
+        "fold_scores": [
+          0.75586,
+          0.75054,
+          0.75854,
+          0.76349,
+          0.76452
+        ],
+        "mean_auc": 0.75859,
+        "std_auc": 0.00513,
+        "oof_auc": 0.75855,
+        "runtime_seconds": 30.7
+      },
+      "XGBoost_Config_3": {
+        "fold_scores": [
+          0.75965,
+          0.7515,
+          0.75965,
+          0.7647,
+          0.76554
+        ],
+        "mean_auc": 0.76021,
+        "std_auc": 0.005,
+        "oof_auc": 0.76015,
+        "runtime_seconds": 103.9
+      },
+      "CatBoost_Config_3": {
+        "fold_scores": [
+          0.75741,
+          0.75218,
+          0.75773,
+          0.76429,
+          0.76719
+        ],
+        "mean_auc": 0.75976,
+        "std_auc": 0.00535,
+        "oof_auc": 0.75977,
+        "runtime_seconds": 336.7
+      }
+    },
+    "ensemble_scores": {
+      "blend_50_25_25": 0.76161,
+      "blend_40_30_30": 0.76159,
+      "blend_45_20_35": 0.7617
+    }
+  },
+  "total_runtime_seconds": 474.07
+}
