@@ -1,0 +1,286 @@
+{
+  "learning_curves": {
+    "25": {
+      "fraction": 0.25,
+      "mean_train_samples": 34240,
+      "fold_scores": [
+        0.74445,
+        0.74727,
+        0.75443,
+        0.74334,
+        0.74853
+      ],
+      "mean_auc": 0.7476,
+      "std_auc": 0.00389,
+      "mean_best_iteration": 249.4,
+      "runtime_seconds": 11.45
+    },
+    "50": {
+      "fraction": 0.5,
+      "mean_train_samples": 68480,
+      "fold_scores": [
+        0.7505,
+        0.75355,
+        0.7601,
+        0.7489,
+        0.75704
+      ],
+      "mean_auc": 0.75402,
+      "std_auc": 0.00412,
+      "mean_best_iteration": 379.8,
+      "runtime_seconds": 18.58
+    },
+    "75": {
+      "fraction": 0.75,
+      "mean_train_samples": 102720,
+      "fold_scores": [
+        0.75363,
+        0.75781,
+        0.7622,
+        0.75238,
+        0.75861
+      ],
+      "mean_auc": 0.75693,
+      "std_auc": 0.00355,
+      "mean_best_iteration": 439.8,
+      "runtime_seconds": 25.01
+    },
+    "100": {
+      "fraction": 1.0,
+      "mean_train_samples": 136961,
+      "fold_scores": [
+        0.7553,
+        0.76093,
+        0.76386,
+        0.75571,
+        0.75944
+      ],
+      "mean_auc": 0.75905,
+      "std_auc": 0.00323,
+      "mean_best_iteration": 596.0,
+      "runtime_seconds": 34.69
+    }
+  },
+  "feature_concentration": {
+    "top3_gain_pct": 40.26,
+    "top10_gain_pct": 68.74,
+    "top20_gain_pct": 86.89,
+    "top20_features_by_gain": [
+      {
+        "feature": "EXT_SOURCES_MEAN",
+        "mean_gain": 53218.713727116585,
+        "pct_gain": 23.34222924495106,
+        "mean_split": 416.8,
+        "pct_split": 3.041358979597793,
+        "cumulative_gain_pct": 23.34222924495106
+      },
+      {
+        "feature": "ORGANIZATION_TYPE",
+        "mean_gain": 22271.29932394028,
+        "pct_gain": 9.768401714253605,
+        "mean_split": 1788.2,
+        "pct_split": 13.048364029070953,
+        "cumulative_gain_pct": 33.11063095920466
+      },
+      {
+        "feature": "PAYMENT_RATE",
+        "mean_gain": 16303.278827929496,
+        "pct_gain": 7.150771696535439,
+        "mean_split": 1026.8,
+        "pct_split": 7.492484165669418,
+        "cumulative_gain_pct": 40.2614026557401
+      },
+      {
+        "feature": "EXT_SOURCES_MIN",
+        "mean_gain": 15385.85447924137,
+        "pct_gain": 6.748380733616193,
+        "mean_split": 353.2,
+        "pct_split": 2.5772744520008164,
+        "cumulative_gain_pct": 47.00978338935629
+      },
+      {
+        "feature": "EXT_SOURCES_MAX",
+        "mean_gain": 10853.353558492661,
+        "pct_gain": 4.760383126466953,
+        "mean_split": 375.2,
+        "pct_split": 2.737806835760777,
+        "cumulative_gain_pct": 51.77016651582325
+      },
+      {
+        "feature": "GOODS_PRICE_TO_CREDIT_RATIO",
+        "mean_gain": 9493.951349186897,
+        "pct_gain": 4.164136509752129,
+        "mean_split": 574.0,
+        "pct_split": 4.1884358308280545,
+        "cumulative_gain_pct": 55.934303025575375
+      },
+      {
+        "feature": "EXT_SOURCE_3",
+        "mean_gain": 8724.074030995369,
+        "pct_gain": 3.8264610645344783,
+        "mean_split": 553.2,
+        "pct_split": 4.036659758909546,
+        "cumulative_gain_pct": 59.76076409010985
+      },
+      {
+        "feature": "OCCUPATION_TYPE",
+        "mean_gain": 8461.495909190178,
+        "pct_gain": 3.7112918264105876,
+        "mean_split": 771.8,
+        "pct_split": 5.631767899360788,
+        "cumulative_gain_pct": 63.47205591652044
+      },
+      {
+        "feature": "DAYS_BIRTH",
+        "mean_gain": 6286.466373461485,
+        "pct_gain": 2.75730337983057,
+        "mean_split": 580.0,
+        "pct_split": 4.2322173900353155,
+        "cumulative_gain_pct": 66.229359296351
+      },
+      {
+        "feature": "EXT_SOURCES_STD",
+        "mean_gain": 5726.522692656517,
+        "pct_gain": 2.511706805876707,
+        "mean_split": 502.8,
+        "pct_split": 3.668894661568547,
+        "cumulative_gain_pct": 68.74106610222772
+      },
+      {
+        "feature": "DAYS_EMPLOYED",
+        "mean_gain": 5360.205019414425,
+        "pct_gain": 2.351036423102364,
+        "mean_split": 402.6,
+        "pct_split": 2.937742622807273,
+        "cumulative_gain_pct": 71.09210252533008
+      },
+      {
+        "feature": "DAYS_ID_PUBLISH",
+        "mean_gain": 4677.3179570555685,
+        "pct_gain": 2.051515723678363,
+        "mean_split": 490.4,
+        "pct_split": 3.578412772540205,
+        "cumulative_gain_pct": 73.14361824900844
+      },
+      {
+        "feature": "AMT_ANNUITY",
+        "mean_gain": 4354.961036849022,
+        "pct_gain": 1.9101269413650541,
+        "mean_split": 396.6,
+        "pct_split": 2.893961063600011,
+        "cumulative_gain_pct": 75.05374519037349
+      },
+      {
+        "feature": "EXT_SOURCE_2",
+        "mean_gain": 4163.99296298027,
+        "pct_gain": 1.826366544945705,
+        "mean_split": 355.6,
+        "pct_split": 2.5947870756837217,
+        "cumulative_gain_pct": 76.88011173531919
+      },
+      {
+        "feature": "DAYS_EMPLOYED_TO_BIRTH_RATIO",
+        "mean_gain": 4086.469394993782,
+        "pct_gain": 1.7923639776325246,
+        "mean_split": 361.0,
+        "pct_split": 2.634190478970257,
+        "cumulative_gain_pct": 78.67247571295171
+      },
+      {
+        "feature": "DAYS_LAST_PHONE_CHANGE",
+        "mean_gain": 4014.4260890007017,
+        "pct_gain": 1.7607651048623663,
+        "mean_split": 445.8,
+        "pct_split": 3.252969849099559,
+        "cumulative_gain_pct": 80.43324081781408
+      },
+      {
+        "feature": "AMT_GOODS_PRICE",
+        "mean_gain": 3834.1083005428313,
+        "pct_gain": 1.6816760239667192,
+        "mean_split": 306.0,
+        "pct_split": 2.2328595195703564,
+        "cumulative_gain_pct": 82.1149168417808
+      },
+      {
+        "feature": "EXT_SOURCE_1",
+        "mean_gain": 3809.564014530182,
+        "pct_gain": 1.6709106688756776,
+        "mean_split": 363.4,
+        "pct_split": 2.651703102653162,
+        "cumulative_gain_pct": 83.78582751065647
+      },
+      {
+        "feature": "OWN_CAR_AGE",
+        "mean_gain": 3613.7135809898377,
+        "pct_gain": 1.5850088235048374,
+        "mean_split": 281.8,
+        "pct_split": 2.0562738974344,
+        "cumulative_gain_pct": 85.37083633416131
+      },
+      {
+        "feature": "DAYS_REGISTRATION",
+        "mean_gain": 3462.95187997818,
+        "pct_gain": 1.518883321028069,
+        "mean_split": 423.2,
+        "pct_split": 3.088059309418872,
+        "cumulative_gain_pct": 86.88971965518938
+      }
+    ]
+  },
+  "adversarial_validation": {
+    "fold_scores": [
+      0.51986,
+      0.52012,
+      0.51626,
+      0.52213,
+      0.51923
+    ],
+    "mean_adv_auc": 0.51952,
+    "std_adv_auc": 0.0019,
+    "runtime_seconds": 6.06,
+    "top_drifting_features": [
+      {
+        "feature": "ORGANIZATION_TYPE",
+        "adv_gain": 2700.0105657577515
+      },
+      {
+        "feature": "EXT_SOURCES_MEAN",
+        "adv_gain": 1640.8915215492248
+      },
+      {
+        "feature": "EXT_SOURCE_3",
+        "adv_gain": 681.6886252403259
+      },
+      {
+        "feature": "OCCUPATION_TYPE",
+        "adv_gain": 588.8714091300965
+      },
+      {
+        "feature": "GOODS_PRICE_TO_CREDIT_RATIO",
+        "adv_gain": 487.4096040725708
+      },
+      {
+        "feature": "DAYS_EMPLOYED_TO_BIRTH_RATIO",
+        "adv_gain": 432.20755376815794
+      },
+      {
+        "feature": "DAYS_EMPLOYED",
+        "adv_gain": 418.8861046791077
+      },
+      {
+        "feature": "EXT_SOURCE_2",
+        "adv_gain": 388.0678214073181
+      },
+      {
+        "feature": "ANNUITY_TO_INCOME_RATIO",
+        "adv_gain": 340.0236090660095
+      },
+      {
+        "feature": "DAYS_REGISTRATION",
+        "adv_gain": 314.4621854782105
+      }
+    ]
+  },
+  "total_runtime_seconds": 96.25
+}
