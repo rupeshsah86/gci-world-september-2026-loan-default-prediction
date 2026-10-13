@@ -1,0 +1,9 @@
+{
+  "candidate_v23_benchmark_oof": 0.7626480676468685,
+  "candidate_v23_benchmark_nested": 0.7625974654574832,
+  "v23_plus_lgb_te_oof": 0.7629236251820215,
+  "v23_plus_lgb_te_nested": 0.7629424883677938,
+  "v23_plus_lgb_te_lift_oof": 0.00027555753515295933,
+  "v23_plus_lgb_te_lift_nested": 0.0003450229103105773,
+  "penta_blend_te_nested": 0.7629561436675195
+}
