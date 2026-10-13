@@ -1,0 +1,186 @@
+{
+  "baseline_reproduction": {
+    "v2_prob_blend_oof": 0.76224,
+    "v21_rank_blend_oof": 0.7623
+  },
+  "experiment_a_models": {
+    "ExtraTrees": {
+      "oof_auc": 0.74099,
+      "fold_scores": [
+        0.7399,
+        0.74098,
+        0.74705,
+        0.738,
+        0.73933
+      ],
+      "mean_auc": 0.74105,
+      "std_auc": 0.00315,
+      "runtime_seconds": 21.8
+    },
+    "HistGradientBoosting": {
+      "oof_auc": 0.7559,
+      "fold_scores": [
+        0.75353,
+        0.75708,
+        0.7598,
+        0.75335,
+        0.75625
+      ],
+      "mean_auc": 0.756,
+      "std_auc": 0.0024,
+      "runtime_seconds": 21.7
+    }
+  },
+  "experiment_b_diversity": {
+    "correlations": {
+      "ET_vs_CB4": 0.9235,
+      "ET_vs_CB3": 0.9246,
+      "ET_vs_XGB3": 0.916,
+      "ET_vs_LGB": 0.91,
+      "ET_vs_V2_Prob": 0.9281,
+      "ET_vs_V21_Rank": 0.9279,
+      "HGB_vs_CB4": 0.9657,
+      "HGB_vs_CB3": 0.9659,
+      "HGB_vs_XGB3": 0.9699,
+      "HGB_vs_LGB": 0.9623,
+      "HGB_vs_V2_Prob": 0.976,
+      "HGB_vs_V21_Rank": 0.976
+    },
+    "et_blend_inclusion": [
+      {
+        "weight": 0.01,
+        "prob_blend_auc": 0.76209,
+        "prob_blend_delta": -0.00016,
+        "rank_blend_auc": 0.76225,
+        "rank_blend_delta": -5e-05
+      },
+      {
+        "weight": 0.02,
+        "prob_blend_auc": 0.76191,
+        "prob_blend_delta": -0.00033,
+        "rank_blend_auc": 0.7622,
+        "rank_blend_delta": -0.0001
+      },
+      {
+        "weight": 0.03,
+        "prob_blend_auc": 0.76171,
+        "prob_blend_delta": -0.00053,
+        "rank_blend_auc": 0.76215,
+        "rank_blend_delta": -0.00016
+      },
+      {
+        "weight": 0.05,
+        "prob_blend_auc": 0.76128,
+        "prob_blend_delta": -0.00096,
+        "rank_blend_auc": 0.76203,
+        "rank_blend_delta": -0.00028
+      },
+      {
+        "weight": 0.1,
+        "prob_blend_auc": 0.76008,
+        "prob_blend_delta": -0.00216,
+        "rank_blend_auc": 0.76166,
+        "rank_blend_delta": -0.00065
+      }
+    ],
+    "hgb_blend_inclusion": [
+      {
+        "weight": 0.01,
+        "prob_blend_auc": 0.76223,
+        "prob_blend_delta": -1e-05,
+        "rank_blend_auc": 0.76229,
+        "rank_blend_delta": -1e-05
+      },
+      {
+        "weight": 0.02,
+        "prob_blend_auc": 0.76222,
+        "prob_blend_delta": -3e-05,
+        "rank_blend_auc": 0.76227,
+        "rank_blend_delta": -3e-05
+      },
+      {
+        "weight": 0.03,
+        "prob_blend_auc": 0.7622,
+        "prob_blend_delta": -4e-05,
+        "rank_blend_auc": 0.76226,
+        "rank_blend_delta": -5e-05
+      },
+      {
+        "weight": 0.05,
+        "prob_blend_auc": 0.76217,
+        "prob_blend_delta": -7e-05,
+        "rank_blend_auc": 0.76222,
+        "rank_blend_delta": -8e-05
+      },
+      {
+        "weight": 0.1,
+        "prob_blend_auc": 0.76207,
+        "prob_blend_delta": -0.00017,
+        "rank_blend_auc": 0.76211,
+        "rank_blend_delta": -0.00019
+      }
+    ]
+  },
+  "experiment_c_optimization": {
+    "top_grid_weights": {
+      "weights": [
+        0.3,
+        0.25,
+        0.3,
+        0.15
+      ],
+      "oof_auc": 0.762326
+    },
+    "nested_cv_mean": 0.76228,
+    "nested_cv_std": 0.00281,
+    "chosen_weights_per_fold": [
+      [
+        0.27,
+        0.25,
+        0.25,
+        0.23
+      ],
+      [
+        0.35,
+        0.25,
+        0.3,
+        0.1
+      ],
+      [
+        0.3,
+        0.25,
+        0.35,
+        0.1
+      ],
+      [
+        0.35,
+        0.2,
+        0.3,
+        0.15
+      ],
+      [
+        0.3,
+        0.25,
+        0.3,
+        0.15
+      ]
+    ]
+  },
+  "experiment_d_audit": {
+    "train_rows": 171202,
+    "test_rows": 61500,
+    "target_leakage": "PASSED (all transformations fit purely on training folds)",
+    "train_test_feature_mismatch": "PASSED (100% column name, dtype, and order match)",
+    "id_alignment_and_duplicates": "PASSED (0 missing, 0 duplicates, 100% sequential alignment)",
+    "prediction_domain": "PASSED (all OOF predictions strictly finite in [0.0, 1.0])",
+    "oof_vs_full_test_replication": "PASSED (max abs diff < 1e-16 between unnormalized test blend and Candidate V2)"
+  },
+  "feature_pilot_per_capita_ratio": {
+    "tested_feature": "ANNUITY_TO_INCOME_PER_CAPITA",
+    "baseline_lgb_auc": 0.759,
+    "pilot_lgb_auc": 0.75854,
+    "delta": -0.00046,
+    "verdict": "REJECTED (split dilution, hurts on 4 of 5 folds)"
+  },
+  "total_runtime_seconds": 53.6
+}
