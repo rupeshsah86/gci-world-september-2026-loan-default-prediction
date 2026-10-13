@@ -1,0 +1,69 @@
+{
+  "timestamp": "2026-10-13 09:31:26 UTC",
+  "baseline_scores": {
+    "v2_prob_blend_oof": 0.76224,
+    "v21_rank_blend_oof": 0.7623,
+    "v2_public_leaderboard": 0.76482
+  },
+  "lightgbm_c2_results": {
+    "name": "LightGBM_C2_Regularized_Depth6",
+    "hyperparameters": {
+      "learning_rate": 0.025,
+      "num_leaves": 20,
+      "max_depth": 6,
+      "min_child_samples": 120,
+      "feature_fraction": 0.65,
+      "bagging_fraction": 0.75,
+      "bagging_freq": 1,
+      "reg_alpha": 2.0,
+      "reg_lambda": 10.0,
+      "objective": "binary",
+      "metric": "auc",
+      "boosting_type": "gbdt",
+      "verbose": -1,
+      "n_jobs": -1
+    },
+    "mean_iterations": 748,
+    "oof_auc": 0.7597,
+    "fold_scores": [
+      0.75662,
+      0.76146,
+      0.7639,
+      0.75564,
+      0.76104
+    ],
+    "mean_fold_auc": 0.75973,
+    "std_fold_auc": 0.00312,
+    "delta_vs_baseline_lgb": 0.0007
+  },
+  "candidate_v22_ensemble": {
+    "artifact": "/Users/rupeshmacbook/Documents/GCI_World/outputs/submission_candidate_20261013_v22_h6.csv",
+    "weights": {
+      "cb4": 0.27,
+      "cb3": 0.23,
+      "xgb3": 0.3,
+      "lgb_c2": 0.2
+    },
+    "prob_blend_oof_auc": 0.76228,
+    "rank_blend_oof_auc": 0.76235,
+    "delta_prob_vs_v2": 4e-05,
+    "delta_rank_vs_v21": 4e-05,
+    "rank_fold_scores": [
+      0.76019,
+      0.76358,
+      0.76643,
+      0.75847,
+      0.76326
+    ],
+    "rank_mean_fold": 0.76239,
+    "rank_std_fold": 0.00278
+  },
+  "test_distribution_summary": {
+    "min": 5.4e-05,
+    "max": 0.999996,
+    "mean": 0.500008,
+    "median": 0.499562,
+    "std": 0.286488
+  },
+  "total_runtime_seconds": 46.9
+}

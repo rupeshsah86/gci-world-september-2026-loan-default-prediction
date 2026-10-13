@@ -17,6 +17,7 @@ competition_tutorial.pptx
 
 # Intermediate out-of-fold CSVs (large generated files, all metrics tracked in JSON)
 experiments/*.csv
+experiments/**/*.csv
 !experiments/stage_h2_step1_feature_importance.csv
 
 # CatBoost training artifacts
