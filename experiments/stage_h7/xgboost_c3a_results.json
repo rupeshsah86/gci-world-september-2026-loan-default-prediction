@@ -1,0 +1,38 @@
+{
+  "model": "XGBoost_Config_3A_Regularized",
+  "params": {
+    "n_estimators": 1200,
+    "learning_rate": 0.025,
+    "max_depth": 6,
+    "min_child_weight": 15,
+    "subsample": 0.85,
+    "colsample_bytree": 0.65,
+    "reg_alpha": 3.0,
+    "reg_lambda": 15.0,
+    "tree_method": "hist",
+    "enable_categorical": true,
+    "eval_metric": "auc",
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "overall_oof_auc": 0.7608781307031923,
+  "mean_fold_auc": 0.7609116162748718,
+  "std_fold_auc": 0.0035705747720638915,
+  "fold_scores": [
+    0.7581189343359473,
+    0.7614154025788928,
+    0.7667322197934006,
+    0.756355041784989,
+    0.7619364828811293
+  ],
+  "best_iters": [
+    663,
+    615,
+    787,
+    497,
+    939
+  ],
+  "mean_iter": 700,
+  "delta_vs_baseline": 0.0007281307031923312,
+  "runtime_seconds": 146.7236819267273
+}

@@ -1,0 +1,45 @@
+{
+  "candidate": "Candidate_V2.3_H7",
+  "artifact": "/Users/rupeshmacbook/Documents/GCI_World/outputs/submission_candidate_20261013_v23_h7.csv",
+  "timestamp": "2026-10-13 10:53:02 UTC",
+  "ensemble_weights": {
+    "CatBoost_Config_4": 0.27,
+    "CatBoost_Config_3": 0.23,
+    "XGBoost_Config_3A": 0.3,
+    "LightGBM_C2": 0.2
+  },
+  "component_oof_scores": {
+    "CatBoost_Config_4": 0.7608,
+    "CatBoost_Config_3": 0.76072,
+    "XGBoost_Config_3A": 0.76088,
+    "LightGBM_C2": 0.7597
+  },
+  "oof_scores": {
+    "v2_prob_benchmark": 0.76224,
+    "v21_rank_blend": 0.7623,
+    "v22_rank_blend": 0.76235,
+    "v23_prob_blend": 0.76258,
+    "v23_rank_blend": 0.76265,
+    "v23_nested_cv_unbiased": 0.76263,
+    "delta_vs_v2_prob": 0.00034,
+    "delta_vs_v22_rank": 0.0003
+  },
+  "public_leaderboard_benchmarks": {
+    "v1_confirmed": 0.76456,
+    "v2_confirmed": 0.76482,
+    "latest_displayed": 0.76506
+  },
+  "test_distribution": {
+    "min": 4.926829268292683e-05,
+    "max": 0.9999848780487806,
+    "mean": 0.5000081300813009,
+    "median": 0.49932650406504064,
+    "std": 0.2864165714711973
+  },
+  "correlations": {
+    "spearman_vs_v2": 0.9989174711267892,
+    "spearman_vs_v21": 0.9989698558788366,
+    "spearman_vs_v22": 0.9992902496631753
+  },
+  "total_runtime_seconds": 12.4617919921875
+}

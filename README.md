@@ -64,6 +64,8 @@ The objective is to predict default probabilities (`TARGET` $\in \{0, 1\}$) on u
 | **Stage H5: Tree Diversity & Nested Opt** | Evaluation of ExtraTrees/HistGBM (Rejected) & Weights | 62 / 46 | 0.76228 | Nested CV confirmation |
 | **Stage H6: LightGBM C2 Optimization** | LightGBM C2 (depth=6, leaves=20, lr=0.025, reg_l2=10) | 46 | **0.75970** | **+0.00070** vs LGB C1 |
 | **Stage H6: Candidate V2.2** | Upgraded LightGBM C2 Rank Blend (Pre-Submission Audited) | 62 / 46 | **0.76235** | **+0.00011** vs V2 Benchmark |
+| **Stage H7: XGBoost Config 3A** | Upgraded XGBoost Config 3A (depth=6, mcw=15, col=0.65, l2=15) | 46 | **0.76088** | **+0.00073** (Top Single Model) |
+| **Stage H7: Candidate V2.3** | Upgraded Quad-Model Rank Blend (Audited Submission) | 62 / 46 | **0.76265** | **+0.00041** vs V2 (Nested: 0.76263) |
 
 *\*Holdout 70/30 split; all subsequent stages evaluated on identical 5-Fold Stratified CV.*
 
@@ -208,13 +210,22 @@ GCI_World/
 │   ├── evaluate_stage_h4.py              # Rank blend evaluation pilot (Stage H4)
 │   ├── train_submission_v21_rank.py      # Candidate V2.1 rank-normalized blend (Stage H4)
 │   ├── train_submission_v22_h5.py        # Stage H5 tree diversity experiments
-│   └── train_submission_v22_h6.py        # Candidate V2.2 upgraded LightGBM C2 rank blend (Stage H6)
+│   ├── train_submission_v22_h6.py        # Candidate V2.2 upgraded LightGBM C2 rank blend (Stage H6)
+│   ├── experiment_h7_xgb_tuning.py       # Stage H7 XGBoost regularized tuning pilot
+│   ├── experiment_h7_cb_tuning.py        # Stage H7 CatBoost screening pilot
+│   ├── experiment_h7_features.py         # Stage H7 feature engineering screening on LightGBM C2
+│   ├── train_xgb_c3a_5fold.py            # Stage H7 5-fold evaluation of XGBoost Config 3A
+│   ├── evaluate_stage_h7_ensemble.py     # Stage H7 ensemble blending and nested CV engine
+│   └── train_submission_v23_h7.py        # Candidate V2.3 full-data inference pipeline (Stage H7)
 ├── experiments/                          # Machine-readable experiment records & JSON logs
 │   ├── stage_h2_step3a_results.json      # Tuning grid scores and best iterations
 │   ├── stage_h2_step3b_results.json      # Seed stability and nested blend logs
 │   ├── stage_h4_rank_blend_results.json  # Stage H4 rank blend evaluation
 │   ├── stage_h5/stage_h5_results.json    # Stage H5 diversity model results
 │   ├── stage_h6/stage_h6_results.json    # Stage H6 LightGBM C2 results
+│   ├── stage_h7/stage_h7_results.json    # Stage H7 candidate V2.3 results
+│   ├── stage_h7/stage_h7_ensemble_results.json # Stage H7 ensemble & nested CV metrics
+│   ├── stage_h7/xgboost_c3a_results.json # Stage H7 XGBoost 3A 5-fold metrics
 │   └── stage_h2_step1_feature_importance.csv
 ├── reports/                              # Detailed audit and stage review reports
 │   ├── cv_validation_report.md
@@ -228,12 +239,15 @@ GCI_World/
 │   ├── stage_h4_rank_blend_review.md
 │   ├── stage_h5_improvement_review.md
 │   ├── stage_h6_dataset_audit.md
-│   └── stage_h6_improvement_review.md
+│   ├── stage_h6_improvement_review.md
+│   ├── stage_h7_experiment_log.md
+│   └── stage_h7_improvement_review.md
 ├── outputs/                              # Submission artifact directory
 │   ├── submission_candidate_20261012.csv               # V1 Baseline candidate (LB: 0.76456)
 │   ├── submission_candidate_20261012_v2_quad_blend.csv # V2 Quad prob blend (LB: 0.76482 benchmark)
 │   ├── submission_candidate_20261013_v21_rank_blend.csv# V2.1 Rank blend (OOF: 0.76230)
-│   └── submission_candidate_20261013_v22_h6.csv        # V2.2 Upgraded LGB C2 rank blend (OOF: 0.76235)
+│   ├── submission_candidate_20261013_v22_h6.csv        # V2.2 Upgraded LGB C2 rank blend (OOF: 0.76235)
+│   └── submission_candidate_20261013_v23_h7.csv        # V2.3 Upgraded XGB 3A rank blend (OOF: 0.76265)
 ├── requirements.txt                      # Pinned Python package dependencies
 └── README.md                             # Comprehensive project documentation
 ```

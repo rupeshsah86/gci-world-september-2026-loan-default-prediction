@@ -1,0 +1,35 @@
+{
+  "model": "CatBoost_Config_6_Regularized",
+  "params": {
+    "iterations": 2000,
+    "learning_rate": 0.03,
+    "depth": 6,
+    "l2_leaf_reg": 20.0,
+    "random_strength": 2.0,
+    "eval_metric": "AUC",
+    "loss_function": "Logloss",
+    "random_seed": 42,
+    "verbose": false,
+    "thread_count": -1
+  },
+  "overall_oof_auc": 0.7606679390799309,
+  "mean_fold_auc": 0.7607110354882428,
+  "std_fold_auc": 0.002595864046483718,
+  "fold_scores": [
+    0.7593791175575009,
+    0.7614256345487375,
+    0.764900241453806,
+    0.7569912798743682,
+    0.7608589040068016
+  ],
+  "best_iters": [
+    1793,
+    1889,
+    1564,
+    1569,
+    1145
+  ],
+  "mean_iter": 1592,
+  "delta_vs_baseline": -0.0001320609200691214,
+  "runtime_seconds": 516.2303552627563
+}

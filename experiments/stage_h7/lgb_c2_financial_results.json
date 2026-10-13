@@ -1,0 +1,40 @@
+{
+  "model": "LightGBM_C2_Financial_50F",
+  "n_features": 50,
+  "params": {
+    "learning_rate": 0.025,
+    "num_leaves": 20,
+    "max_depth": 6,
+    "min_child_samples": 120,
+    "feature_fraction": 0.65,
+    "bagging_fraction": 0.75,
+    "bagging_freq": 1,
+    "reg_alpha": 2.0,
+    "reg_lambda": 10.0,
+    "objective": "binary",
+    "metric": "auc",
+    "boosting_type": "gbdt",
+    "verbose": -1,
+    "n_jobs": -1
+  },
+  "overall_oof_auc": 0.7595505413389975,
+  "mean_fold_auc": 0.7595847507040278,
+  "std_fold_auc": 0.002737313917644895,
+  "fold_scores": [
+    0.7567781901443026,
+    0.7610500448460172,
+    0.7640351691473201,
+    0.7568467620748512,
+    0.7592135873076475
+  ],
+  "best_iters": [
+    718,
+    828,
+    763,
+    906,
+    654
+  ],
+  "mean_iter": 774,
+  "delta_vs_baseline": -0.0001494586610025772,
+  "runtime_seconds": 52.46894812583923
+}
