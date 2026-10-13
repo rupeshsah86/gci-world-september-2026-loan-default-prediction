@@ -31,17 +31,19 @@ This repository documents the complete engineering journey from the initial comp
 
 The objective is to predict default probabilities (`TARGET` $\in \{0, 1\}$) on uncollateralized consumer loans, evaluated by **ROC-AUC** on continuous probabilities.
 
-- **Dataset Scale**: 171,202 training samples (positive default rate: 8.07%) and 61,500 test samples.
+- **Dataset Scale**: 171,202 training samples (positive default rate: 8.08%) and 61,500 test samples.
 - **Validation Strategy**: 5-Fold Stratified Cross-Validation (`StratifiedKFold(n_splits=5, shuffle=True, random_state=42)`), replicated independently on `seed=2026`.
 - **Top Individual Models**:
-  - **CatBoost Config 3 (62 features)**: OOF ROC-AUC **0.76072** ($\pm 0.00263$)
-  - **XGBoost Config 3 (46 features)**: OOF ROC-AUC **0.76015** ($\pm 0.00285$)
-  - **Tuned LightGBM (46 features)**: OOF ROC-AUC **0.75900** ($\pm 0.00323$)
-- **Winning Tri-Model Ensemble**:
-  - Fixed Probability Blend: **50% CatBoost + 25% LightGBM + 25% XGBoost**
-  - **Aligned OOF ROC-AUC**: **0.76208**
-  - **Unbiased Nested CV ROC-AUC**: **0.76212**
-  - **Replication on Independent Seed (2026)**: **0.76161** (+0.0015 over single best model)
+  - **LightGBM C2 (Target-Encoded)**: 5-Fold OOF ROC-AUC **0.76183** ($\pm 0.00393$) (Top Single Model)
+  - **XGBoost Config 3A (Target-Encoded)**: 5-Fold OOF ROC-AUC **0.76166** ($\pm 0.00331$)
+  - **XGBoost Config 3A (3-Seed Bagged)**: 5-Fold OOF ROC-AUC **0.76128** ($\pm 0.00329$)
+  - **CatBoost Config 4 (62 features)**: 5-Fold OOF ROC-AUC **0.76080** ($\pm 0.00324$)
+  - **CatBoost Config 3 (62 features)**: 5-Fold OOF ROC-AUC **0.76072** ($\pm 0.00325$)
+- **Winning Quad-Model Rank Ensemble (Candidate V2.5-C)**:
+  - Allocation: **27% CatBoost Config 4 + 23% CatBoost Config 3 + 30% Target-Encoded XGBoost Config 3A + 20% Target-Encoded LightGBM C2**
+  - **Overall 5-Fold OOF ROC-AUC**: **0.76302** (100% monotonic fold improvement over Candidate V2.3)
+  - **Exploratory Nested CV ROC-AUC**: **0.76300**
+  - **Confirmed Public Leaderboard ROC-AUC**: **0.76568** (Omnicampus Rank: **345**)
 
 ### Benchmark Progression
 
@@ -65,7 +67,11 @@ The objective is to predict default probabilities (`TARGET` $\in \{0, 1\}$) on u
 | **Stage H6: LightGBM C2 Optimization** | LightGBM C2 (depth=6, leaves=20, lr=0.025, reg_l2=10) | 46 | **0.75970** | **+0.00070** vs LGB C1 |
 | **Stage H6: Candidate V2.2** | Upgraded LightGBM C2 Rank Blend (Pre-Submission Audited) | 62 / 46 | **0.76235** | **+0.00011** vs V2 Benchmark |
 | **Stage H7: XGBoost Config 3A** | Upgraded XGBoost Config 3A (depth=6, mcw=15, col=0.65, l2=15) | 46 | **0.76088** | **+0.00073** (Top Single Model) |
-| **Stage H7: Candidate V2.3** | Upgraded Quad-Model Rank Blend (Audited Submission) | 62 / 46 | **0.76265** | **+0.00041** vs V2 (Nested: 0.76263) |
+| **Stage H7: Candidate V2.3** | Upgraded Quad-Model Rank Blend (Audited Submission) | 62 / 46 | **0.76265** | **+0.00041** vs V2 (LB: **0.76535**) |
+| **Stage H8: Bagged XGBoost 3A** | 3-Seed Bagged XGBoost Config 3A (seeds 42, 2026, 777) | 46 | **0.76128** | **+0.00040** vs single seed |
+| **Stage H8: Candidate V2.4 (Bagged)** | Fully Bagged Quad Blend (Trade-off: inter-model error correlation) | 62 / 46 | 0.76253 | -0.00012 (Diversity loss) |
+| **Stage H9: Target-Encoded GBDTs**| Out-of-Fold Bayesian Target Encoding on high-cardinality nominals | 46 | **0.76183** (LGB) / **0.76166** (XGB) | **+0.00213** / **+0.00078** |
+| **Stage H9: Candidate V2.5-C** | Dual Target-Encoded Quad Rank Blend (Audited Submission) | 62 / 46 | **0.76302** | **+0.00037** vs V2.3 (LB: **0.76568**, Rank **345**) |
 
 *\*Holdout 70/30 split; all subsequent stages evaluated on identical 5-Fold Stratified CV.*
 
@@ -216,7 +222,17 @@ GCI_World/
 │   ├── experiment_h7_features.py         # Stage H7 feature engineering screening on LightGBM C2
 │   ├── train_xgb_c3a_5fold.py            # Stage H7 5-fold evaluation of XGBoost Config 3A
 │   ├── evaluate_stage_h7_ensemble.py     # Stage H7 ensemble blending and nested CV engine
-│   └── train_submission_v23_h7.py        # Candidate V2.3 full-data inference pipeline (Stage H7)
+│   ├── train_submission_v23_h7.py        # Candidate V2.3 full-data inference pipeline (Stage H7)
+│   ├── experiment_h8_group_stats.py      # Stage H8 demographic group mean deviations pilot
+│   ├── train_xgb_c3a_multiseed_5fold.py  # Stage H8 3-seed bagged XGBoost 3A CV
+│   ├── train_lgb_c2_multiseed_5fold.py   # Stage H8 3-seed bagged LightGBM C2 CV
+│   ├── evaluate_stage_h8_ensemble.py     # Stage H8 bagged quad-model ensemble evaluation
+│   ├── experiment_h9_diversity_pilots.py # Stage H9 Tabular MLP, Logistic Regression & TE pilots
+│   ├── experiment_h9_hybrid_blend.py     # Stage H9 bounded hybrid weight partitioning
+│   ├── experiment_h9_target_encoding_full.py # Stage H9 5-fold CV Target-Encoded LightGBM C2
+│   ├── experiment_h9_target_encoded_xgboost_full.py # Stage H9 5-fold CV Target-Encoded XGBoost 3A
+│   ├── experiment_h9_final_ensemble_evaluation.py # Stage H9 final ensemble & nested CV audit
+│   └── train_submission_v25_h9.py        # Candidate V2.5-C full-data inference pipeline (Stage H9)
 ├── experiments/                          # Machine-readable experiment records & JSON logs
 │   ├── stage_h2_step3a_results.json      # Tuning grid scores and best iterations
 │   ├── stage_h2_step3b_results.json      # Seed stability and nested blend logs
@@ -226,6 +242,13 @@ GCI_World/
 │   ├── stage_h7/stage_h7_results.json    # Stage H7 candidate V2.3 results
 │   ├── stage_h7/stage_h7_ensemble_results.json # Stage H7 ensemble & nested CV metrics
 │   ├── stage_h7/xgboost_c3a_results.json # Stage H7 XGBoost 3A 5-fold metrics
+│   ├── stage_h8/xgboost_c3a_bagged_results.json # Stage H8 3-seed bagged XGBoost metrics
+│   ├── stage_h8/lgb_c2_bagged_results.json      # Stage H8 3-seed bagged LightGBM metrics
+│   ├── stage_h8/stage_h8_ensemble_results.json  # Stage H8 bagged ensemble metrics
+│   ├── stage_h9/stage_h9_final_ensemble_summary.json # Stage H9 final ensemble metrics
+│   ├── stage_h9/stage_h9_candidate_v25_results.json  # Stage H9 Candidate V2.5-C metadata
+│   ├── stage_h9/target_encoded_lgb_results.json      # Stage H9 Target-Encoded LGB metrics
+│   ├── stage_h9/target_encoded_xgb_results.json      # Stage H9 Target-Encoded XGB metrics
 │   └── stage_h2_step1_feature_importance.csv
 ├── reports/                              # Detailed audit and stage review reports
 │   ├── cv_validation_report.md
@@ -241,13 +264,19 @@ GCI_World/
 │   ├── stage_h6_dataset_audit.md
 │   ├── stage_h6_improvement_review.md
 │   ├── stage_h7_experiment_log.md
-│   └── stage_h7_improvement_review.md
+│   ├── stage_h7_improvement_review.md
+│   ├── stage_h8_experiment_log.md
+│   ├── stage_h8_improvement_review.md
+│   ├── stage_h9_experiment_log.md
+│   ├── stage_h9_improvement_review.md
+│   └── stage_h9_presubmission_audit.md
 ├── outputs/                              # Submission artifact directory
 │   ├── submission_candidate_20261012.csv               # V1 Baseline candidate (LB: 0.76456)
 │   ├── submission_candidate_20261012_v2_quad_blend.csv # V2 Quad prob blend (LB: 0.76482 benchmark)
 │   ├── submission_candidate_20261013_v21_rank_blend.csv# V2.1 Rank blend (OOF: 0.76230)
 │   ├── submission_candidate_20261013_v22_h6.csv        # V2.2 Upgraded LGB C2 rank blend (OOF: 0.76235)
-│   └── submission_candidate_20261013_v23_h7.csv        # V2.3 Upgraded XGB 3A rank blend (OOF: 0.76265)
+│   ├── submission_candidate_20261013_v23_h7.csv        # V2.3 Upgraded XGB 3A rank blend (LB: 0.76535)
+│   └── submission_candidate_20261013_v25_h9.csv        # V2.5-C Dual TE Quad blend (LB: 0.76568, Rank 345)
 ├── requirements.txt                      # Pinned Python package dependencies
 └── README.md                             # Comprehensive project documentation
 ```
