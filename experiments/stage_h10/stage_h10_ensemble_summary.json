@@ -1,0 +1,47 @@
+{
+  "timestamp": "Stage_H10_Evaluation",
+  "standalone_oof_aucs": {
+    "CB4": 0.760802480733487,
+    "CB3": 0.7607214486379035,
+    "XGB_3A_TE": 0.7616555886016185,
+    "XGB_3B_TE": 0.7616595292261988,
+    "LGB_C2_TE": 0.7618284876139716,
+    "LGB_C3_TE": 0.7619410102260205,
+    "CB_TE": 0.7601284576215958
+  },
+  "fixed_weight_ensembles": {
+    "v25c_benchmark_rank": 0.7630156045041706,
+    "v25c_benchmark_prob": 0.7629340908354382,
+    "v26a_lgb_c3_rank": 0.7630609473171106,
+    "v26a_lgb_c3_prob": 0.7629828945387522,
+    "v26b_xgb_c3b_rank": 0.7630155304867223,
+    "v26c_dual_upgrade_rank": 0.7630693347352807,
+    "v26d_equal_weight_rank": 0.7630627012088186,
+    "v26e_5model_rank": 0.7630708509436303,
+    "logit_rank_blend": 0.7630143078196195,
+    "power_rank_blend": 0.7630576815845427
+  },
+  "nested_cv_results": {
+    "v25c_benchmark": {
+      "overall": 0.763004226275383,
+      "mean": 0.763036433236757,
+      "std": 0.003166607427928232
+    },
+    "v26a_lgb_c3": {
+      "overall": 0.7630626681078481,
+      "mean": 0.7630899762705996,
+      "std": 0.003260045430886441
+    },
+    "v26c_dual_upgrade": {
+      "overall": 0.7630702893764687,
+      "mean": 0.7630983663305517,
+      "std": 0.003183554805146296
+    }
+  },
+  "deltas_vs_v25c_benchmark": {
+    "v26a_rank_lift": 4.534281293999687e-05,
+    "v26a_nested_lift": 5.8441832465061516e-05,
+    "v26c_rank_lift": 5.373023111010511e-05,
+    "v26c_nested_lift": 6.606310108570046e-05
+  }
+}

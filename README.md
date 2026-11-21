@@ -34,8 +34,10 @@ The objective is to predict default probabilities (`TARGET` $\in \{0, 1\}$) on u
 - **Dataset Scale**: 171,202 training samples (positive default rate: 8.08%) and 61,500 test samples.
 - **Validation Strategy**: 5-Fold Stratified Cross-Validation (`StratifiedKFold(n_splits=5, shuffle=True, random_state=42)`), replicated independently on `seed=2026`.
 - **Top Individual Models**:
-  - **LightGBM C2 (Target-Encoded)**: 5-Fold OOF ROC-AUC **0.76183** ($\pm 0.00393$) (Top Single Model)
-  - **XGBoost Config 3A (Target-Encoded)**: 5-Fold OOF ROC-AUC **0.76166** ($\pm 0.00331$)
+  - **LightGBM C3_TE (Target-Encoded, Stage H10)**: 5-Fold OOF ROC-AUC **0.76194** ($\pm 0.00408$) (All-Time Top Single Model)
+  - **LightGBM C2 (Target-Encoded, Stage H9)**: 5-Fold OOF ROC-AUC **0.76183** ($\pm 0.00393$)
+  - **XGBoost Config 3B (Target-Encoded, Stage H10)**: 5-Fold OOF ROC-AUC **0.76166** ($\pm 0.00319$) (High Fold Stability)
+  - **XGBoost Config 3A (Target-Encoded, Stage H9)**: 5-Fold OOF ROC-AUC **0.76166** ($\pm 0.00331$)
   - **XGBoost Config 3A (3-Seed Bagged)**: 5-Fold OOF ROC-AUC **0.76128** ($\pm 0.00329$)
   - **CatBoost Config 4 (62 features)**: 5-Fold OOF ROC-AUC **0.76080** ($\pm 0.00324$)
   - **CatBoost Config 3 (62 features)**: 5-Fold OOF ROC-AUC **0.76072** ($\pm 0.00325$)
@@ -72,6 +74,8 @@ The objective is to predict default probabilities (`TARGET` $\in \{0, 1\}$) on u
 | **Stage H8: Candidate V2.4 (Bagged)** | Fully Bagged Quad Blend (Trade-off: inter-model error correlation) | 62 / 46 | 0.76253 | -0.00012 (Diversity loss) |
 | **Stage H9: Target-Encoded GBDTs**| Out-of-Fold Bayesian Target Encoding on high-cardinality nominals | 46 | **0.76183** (LGB) / **0.76166** (XGB) | **+0.00213** / **+0.00078** |
 | **Stage H9: Candidate V2.5-C** | Dual Target-Encoded Quad Rank Blend (Audited Submission) | 62 / 46 | **0.76302** | **+0.00037** vs V2.3 (LB: **0.76568**, Rank **345**) |
+| **Stage H10: Component Regularization** | LightGBM C3_TE (reg_alpha=3.0, reg_lambda=15.0) | 46 | **0.76194** (LGB) / **0.76166** (XGB) | **+0.00011** (New All-Time Standalone Record) |
+| **Stage H10: Candidate V2.6-A Audit** | Dual TE Quad with LGB C3_TE (Monotonicity Audit) | 62 / 46 | **0.76306** (Nested: **0.76306**) | +0.00004 OOF (Retained V2.5-C Benchmark) |
 
 *\*Holdout 70/30 split; all subsequent stages evaluated on identical 5-Fold Stratified CV.*
 

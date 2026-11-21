@@ -1,0 +1,10 @@
+{
+  "pilot_0_baseline": 0.7587141705976297,
+  "pilot_1a_occ_org": 0.7581877600013646,
+  "pilot_1b_expanded_te": 0.7587491351390792,
+  "pilot_1c_smooth_5.0": 0.7581025095069759,
+  "pilot_1c_smooth_10.0": 0.7586298626056733,
+  "pilot_1c_smooth_20.0": 0.758529715975283,
+  "pilot_1c_smooth_50.0": 0.7586107367026586,
+  "pilot_2a_missingness": 0.75815862288349
+}
