@@ -1,0 +1,76 @@
+{
+  "baseline": {
+    "auc": 0.7593971860187626,
+    "best_iter": 896
+  },
+  "candidate_set_A": {
+    "auc": 0.7589325553075369,
+    "delta": -0.00046463071122571087,
+    "best_iter": 876
+  },
+  "candidate_set_B": {
+    "auc": 0.7592571324561195,
+    "delta": -0.00014005356264312763,
+    "best_iter": 635
+  },
+  "candidate_set_C": {
+    "auc": 0.7593974733670652,
+    "delta": 2.8734830259669053e-07,
+    "best_iter": 898
+  },
+  "candidate_set_D": {
+    "auc": 0.7594913558044611,
+    "delta": 9.416978569853907e-05,
+    "best_iter": 898
+  },
+  "ind_EXT_PROD_2_3": {
+    "auc": 0.7590646320813024,
+    "delta": -0.00033255393746023376,
+    "best_iter": 832
+  },
+  "ind_EXT_DIFF_2_3": {
+    "auc": 0.758774893040916,
+    "delta": -0.0006222929778465502,
+    "best_iter": 717
+  },
+  "ind_EXT_WEIGHTED_MEAN": {
+    "auc": 0.7583802029065212,
+    "delta": -0.0010169831122414097,
+    "best_iter": 720
+  },
+  "ind_GOODS_CREDIT_DIFF": {
+    "auc": 0.7591621695891062,
+    "delta": -0.00023501642965639835,
+    "best_iter": 824
+  },
+  "ind_CREDIT_TERM_YEARS": {
+    "auc": 0.7594886777182817,
+    "delta": 9.14916995190529e-05,
+    "best_iter": 898
+  },
+  "ind_DISPOSABLE_INCOME": {
+    "auc": 0.758193541449211,
+    "delta": -0.0012036445695515763,
+    "best_iter": 597
+  },
+  "ind_ANNUITY_PER_PERSON": {
+    "auc": 0.7590977116178874,
+    "delta": -0.0002994744008751882,
+    "best_iter": 824
+  },
+  "ind_ADULT_EMPLOYED_RATIO": {
+    "auc": 0.7591425034712823,
+    "delta": -0.0002546825474802894,
+    "best_iter": 1026
+  },
+  "ind_INCOME_TO_AGE": {
+    "auc": 0.7580171325793345,
+    "delta": -0.0013800534394281527,
+    "best_iter": 620
+  },
+  "ind_RELATIVE_INCOME_TO_PEER": {
+    "auc": 0.7594913558044611,
+    "delta": 9.416978569853907e-05,
+    "best_iter": 898
+  }
+}

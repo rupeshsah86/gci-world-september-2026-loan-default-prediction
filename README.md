@@ -76,6 +76,7 @@ The objective is to predict default probabilities (`TARGET` $\in \{0, 1\}$) on u
 | **Stage H9: Candidate V2.5-C** | Dual Target-Encoded Quad Rank Blend (Audited Submission) | 62 / 46 | **0.76302** | **+0.00037** vs V2.3 (LB: **0.76568**, Rank **345**) |
 | **Stage H10: Component Regularization** | LightGBM C3_TE (reg_alpha=3.0, reg_lambda=15.0) | 46 | **0.76194** (LGB) / **0.76166** (XGB) | **+0.00011** (New All-Time Standalone Record) |
 | **Stage H10: Candidate V2.6-A Audit** | Dual TE Quad with LGB C3_TE (Monotonicity Audit) | 62 / 46 | **0.76306** (Nested: **0.76306**) | +0.00004 OOF (Retained V2.5-C Benchmark) |
+| **Stage H11: Error Diagnostics & Hexa-Blend** | Subgroup error analysis & Hexa-Model Blend (4/5 folds won/tied) | 62 / 46 | **0.76307** (Nested: **0.76312**) | +0.00005 OOF / +0.00012 Nested (Retained V2.5-C) |
 
 *\*Holdout 70/30 split; all subsequent stages evaluated on identical 5-Fold Stratified CV.*
 
